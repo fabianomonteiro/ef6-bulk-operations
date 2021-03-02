@@ -3,7 +3,7 @@
 A nuget package that extends the DbContext in EF6 with bulk operations for both inserts and updates.
 
 ## Project status
-### 2020-06-15
+### 2021-03-01
 I'm currently working on the 1.5 release. It is planned to contain an improved BulkSelect where it will be possible to identify the rows using join operations.
 
 
@@ -188,6 +188,10 @@ NOT IMPLEMENTED
             BulkDeleteRequest<T1> request)
 ```
 ## Release history
+##### 1.4.1 (2021-03-01)
+ * Fix a bug when the entity was a proxy
+ * Fixed a bug when the entity has an inheritance, and the properties were rewritten using hide
+ * 
 ##### 1.4.0 (2020-06-15)
  * Added experimental support for TPH table inheritance.
  * The package now targets both netstandard2.1 and net45
@@ -196,27 +200,6 @@ NOT IMPLEMENTED
 ##### 1.3.0 (2019-12-21)
  * Bugfix: More fixes related to parsing table names in some very specific situations.
  * Added support for the recompile option and for deleting the query plan cache.
-
-##### 1.2.7 (2019-09-13)
- * Bugfix: Issue #18 - Bug when parsing table names. (not completely fixed in 1.2.5)
- * Added documentation for BulkDeleteNotExisting
-
-##### 1.2.5 (2019-07-15)
- * Bugfix: Issue #18 - Bug when parsing table names.
- * Bugfix: Sorting on a clustered index did not work for tables with schemas.
- * Bugfix: BulkSelectExisting and BulkSelectNotExisting sometimes returned duplicates.
-
-##### 1.2.4 (2019-05-26)
- * Bugfix: Issue #16 - BulkInsert is not thread safety.
-
-##### 1.2.3 (2019-03-29)
- * Bugfix: Join tables with Guid keys misbehaved.
- * Added method BulkDeleteNotExisting
-
-##### 1.2.2 (2018-12-01)
- * Bugfix: BulkSelect did not work properly with null columns.
- * Bugfix: Contexts using lazy loading and thus dynamic proxies did not work as expected.
- * Bugfix: Tables with Guid primary keys did not work as expected in some situations.
 
 
 ## Built With

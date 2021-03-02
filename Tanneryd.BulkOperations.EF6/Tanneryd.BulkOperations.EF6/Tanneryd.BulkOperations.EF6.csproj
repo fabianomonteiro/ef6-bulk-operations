@@ -12,6 +12,9 @@
     <Copyright>Tånneryd IT AB</Copyright>
     <PackageReleaseNotes>Fix a bug when the entity was a proxy
 Fixed a bug when the entity has an inheritance, and the properties were rewritten using hide.</PackageReleaseNotes>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/fabianomonteiro/ef6-bulk-operations</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/fabianomonteiro/ef6-bulk-operations</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

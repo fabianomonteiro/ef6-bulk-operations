@@ -1,4 +1,4 @@
-# Tanneryd.BulkOperations.EF6
+# Tanneryd.BulkOperations.EF6.Extended
 
 A nuget package that extends the DbContext in EF6 with bulk operations for both inserts and updates.
 

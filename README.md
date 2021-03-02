@@ -16,7 +16,7 @@ Read the CodeProject article [Bulk operations using Entity Framework](https://ww
 The extension is built for, and requires, Entity Framework 6.
 
 ### Installing
-Install the nuget package [Tanneryd.BulkOperations.EF6](https://www.nuget.org/packages/Tanneryd.BulkOperations.EF6). This will make the following methods available on the DbContext.
+Install the nuget package [Tanneryd.BulkOperations.EF6.Extended](https://www.nuget.org/packages/Tanneryd.BulkOperations.EF6.Extended). This will make the following methods available on the DbContext.
 
 ### API
 

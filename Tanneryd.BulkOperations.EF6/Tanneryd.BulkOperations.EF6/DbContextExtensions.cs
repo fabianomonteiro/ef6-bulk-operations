@@ -446,7 +446,7 @@ namespace Tanneryd.BulkOperations.EF6
 
                 // Ignore all properties that we have no mappings for. We might have done so
                 // already but just to be really really sure.
-                if (columnMappings.ContainsKey(property.Name))
+                if (columnMappings.ContainsKey(property.Name) && !table.Columns.Contains(property.Name))
                 {
                     // Since we cannot trust the CLR type properties to be in the same order as
                     // the table columns we use the SqlBulkCopy column mappings.
@@ -1091,6 +1091,11 @@ namespace Tanneryd.BulkOperations.EF6
                     Type navPropertyType = null;
                     foreach (var entity in entities)
                     {
+                        t = entity.GetType();
+
+                        if (entity != null && t.GetField("_entityWrapper") != null)
+                            continue;
+
                         var navProperty = GetProperty(t, navigationPropertyName, entity);
                         if (navProperty != null)
                         {
@@ -2239,7 +2244,7 @@ namespace Tanneryd.BulkOperations.EF6
             }
 
             Type t = o.GetType();
-            var bulkProperties = t.GetProperties().Select(p => new RegularBulkPropertyInfo
+            var bulkProperties = t.GetPropertiesUnambiguous().Select(p => new RegularBulkPropertyInfo
             {
                 PropertyInfo = p
             }).ToArray();
@@ -2266,7 +2271,7 @@ namespace Tanneryd.BulkOperations.EF6
             return conn;
         }
 
- 
+
         /// <summary>
         /// Use reflection to get the property value by its property 
         /// name from an object instance.
@@ -2286,7 +2291,8 @@ namespace Tanneryd.BulkOperations.EF6
             if (t.IsPrimitive) return instance;
             if (t == typeof(string)) return instance;
 
-            var property = t.GetProperty(propertyName);
+            var property = t.GetPropertyUnambiguous(propertyName);
+
             return GetProperty(property, instance, def);
         }
 

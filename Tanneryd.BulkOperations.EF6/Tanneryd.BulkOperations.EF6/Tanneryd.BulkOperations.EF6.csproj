@@ -2,17 +2,16 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;net45</TargetFrameworks>
-    <Version>1.4.0</Version>
+    <Version>1.4.1</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageId>Tanneryd.BulkOperations.EF6</PackageId>
-    <Authors>Måns Tånneryd</Authors>
-    <Company>Tånneryd IT AB</Company>
+    <PackageId>Tanneryd.BulkOperations.EF6.Extended</PackageId>
+    <Authors>Fabiano Monteiro</Authors>
+    <Company>Flash Tecnologia</Company>
     <Product>Tanneryd.BulkOperations.EF6</Product>
     <Copyright>Tånneryd IT AB</Copyright>
-    <PackageReleaseNotes>Added experimental support for TPH table inheritance.
-Package now targets netstandard2.1 and net45
-Fixed a bug when using computed columns in tables without identity primary keys</PackageReleaseNotes>
+    <PackageReleaseNotes>Fix a bug when the entity was a proxy
+Fixed a bug when the entity has an inheritance, and the properties were rewritten using hide.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
